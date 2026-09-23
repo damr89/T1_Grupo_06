@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d19815">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logoUPN"
+        android:layout_width="144dp"
+        android:layout_height="75dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="42dp"
+        android:src="@drawable/logo" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tarjetaLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="30dp"
+        app:cardBackgroundColor="#adadac"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="30dp"
+            android:gravity="center">
+
+            <!-- Imagen usuario -->
+            <ImageView
+                android:layout_width="146dp"
+                android:layout_height="146dp"
+                android:layout_marginBottom="25dp"
+                android:src="@drawable/usuario" />
+
+            <!-- Usuario -->
+            <EditText
+                android:id="@+id/etUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="#D3D3D3"
+                android:hint="Usuario"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <!-- Contraseña -->
+            <EditText
+                android:id="@+id/etContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:background="#D3D3D3"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <!--  Recordar -->
+            <CheckBox
+                android:id="@+id/cbRecordar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="20dp"
+                android:text="Recordar"
+                android:textColor="#000000" />
+
+            <!-- Botón Iniciar sesión -->
+            <Button
+                android:id="@+id/btnIniciarSesion"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:backgroundTint="#F29325"
+                android:text="Iniciar Sesión"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="15dp" />
+
+            <!-- Botón Crear Usuario -->
+            <Button
+                android:id="@+id/btnCrearUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:text="¿No tienes cuenta? Crear Usuario"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

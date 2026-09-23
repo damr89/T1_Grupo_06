@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d19815">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logoUPN"
+        android:layout_width="144dp"
+        android:layout_height="75dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="42dp"
+        android:src="@drawable/logo" />
+
+    <!-- Registro de usuario -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tarjetaRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="30dp"
+        app:cardBackgroundColor="#adadac"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="30dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REGISTRO DE USUARIO"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="25dp"/>
+
+            <!-- Nombre -->
+            <EditText
+                android:id="@+id/etNombreRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D3D3D3"
+                android:hint="Nombre completo"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <!-- Correo -->
+            <EditText
+                android:id="@+id/etCorreoRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D3D3D3"
+                android:hint="Correo electrónico"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <!-- Usuario -->
+            <EditText
+                android:id="@+id/etUsuarioRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D3D3D3"
+                android:hint="Usuario"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <!-- Contraseña -->
+            <EditText
+                android:id="@+id/etContrasenaRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D3D3D3"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <!-- Confirmar Contraseña -->
+            <EditText
+                android:id="@+id/etConfirmarContrasena"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="#D3D3D3"
+                android:hint="Confirmar Contraseña"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <!-- Botón Registrar -->
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:backgroundTint="#F29325"
+                android:text="Registrar"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="15dp" />
+
+            <!-- Botón Volver al Login -->
+            <Button
+                android:id="@+id/btnVolverLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:text="¿Ya tienes cuenta? Iniciar Sesión"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d19815">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="#adadac"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="25dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GESTIÓN DE PRODUCTOS"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Campos de texto -->
+            <EditText
+                android:id="@+id/etCodigoProducto"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D3D3D3"
+                android:hint="Código"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <EditText
+                android:id="@+id/etNombreProducto"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D3D3D3"
+                android:hint="Nombre"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <EditText
+                android:id="@+id/etDescripcionProducto"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D3D3D3"
+                android:hint="Descripción"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <EditText
+                android:id="@+id/etPrecioProducto"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:background="#D3D3D3"
+                android:hint="Precio"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <EditText
+                android:id="@+id/etMarcaProducto"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="20dp"
+                android:background="#D3D3D3"
+                android:hint="Marca"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#555555" />
+
+            <!-- Botones CRUD -->
+            <Button
+                android:id="@+id/btnRegistrarProducto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#F29325"
+                android:text="Registrar Producto"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:cornerRadius="15dp" />
+
+            <Button
+                android:id="@+id/btnBuscarProducto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#4A3B7D"
+                android:text="Buscar Producto"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:cornerRadius="15dp" />
+
+            <Button
+                android:id="@+id/btnModificarProducto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#4A3B7D"
+                android:text="Modificar Producto"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:cornerRadius="15dp" />
+
+            <Button
+                android:id="@+id/btnEliminarProducto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:backgroundTint="#B71C46"
+                android:text="Eliminar Producto"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:cornerRadius="15dp" />
+
+            <!-- NUEVO: Botón Cerrar Sesión -->
+            <Button
+                android:id="@+id/btnCerrarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:text="Cerrar Sesión"
+                android:textAllCaps="false"
+                android:textColor="#B71C46"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
