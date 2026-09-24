@@ -23,6 +23,9 @@
             </intent-filter>
         </activity>
 
+        <!-- Pantalla 2FA -->
+        <activity android:name=".TwoFactorActivity" />
+
         <!-- Pantalla 2: Registro de Usuarios -->
         <activity android:name=".RegistroActivity" />
 
