@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registro) // Conecta con tu diseño XML[cite: 7]
+        setContentView(R.layout.activity_registro) 
 
-        // 1. Vincular los elementos visuales del registro usando los IDs exactos
+        // Vincular los elementos visuales del registro usando los IDs exactos
         val etNombre = findViewById<EditText>(R.id.etNombreRegistro)
         val etCorreo = findViewById<EditText>(R.id.etCorreoRegistro)
         val etUsuario = findViewById<EditText>(R.id.etUsuarioRegistro)
@@ -20,7 +20,7 @@ class RegistroActivity : AppCompatActivity() {
         val etConfirmarContrasena = findViewById<EditText>(R.id.etConfirmarContrasena)
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
 
-        // 2. Programar la acción del botón "Registrar" / "Crear usuario"
+        // Programar la acción del botón "Registrar" / "Crear usuario"
         btnRegistrar.setOnClickListener {
             val nombre = etNombre.text.toString().trim()
             val correo = etCorreo.text.toString().trim()
@@ -28,13 +28,13 @@ class RegistroActivity : AppCompatActivity() {
             val contrasena = etContrasena.text.toString().trim()
             val confirmar = etConfirmarContrasena.text.toString().trim()
 
-            // Validación: Ningún campo debe estar vacío
+            // Ningún campo debe estar vacío
             if (nombre.isEmpty() || correo.isEmpty() || usuario.isEmpty() || contrasena.isEmpty() || confirmar.isEmpty()) {
                 Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Validación: Las contraseñas deben coincidir
+            // Las contraseñas deben coincidir
             if (contrasena != confirmar) {
                 etConfirmarContrasena.error = "Las contraseñas no coinciden"
                 etConfirmarContrasena.requestFocus()
@@ -58,10 +58,10 @@ class RegistroActivity : AppCompatActivity() {
             finish()
         }
 
-        // 3. Ubicamos el botón de volver (que ya tenías implementado)
+        //Ubicamos el botón de volver (que ya tenías implementado)
         val btnVolverLogin = findViewById<Button>(R.id.btnVolverLogin)
 
-        // Acción de regresar al Login manualmente si el usuario lo desea[cite: 7]
+        // Acción de regresar al Login manualmente si el usuario lo desea
         btnVolverLogin.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
