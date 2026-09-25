@@ -98,11 +98,6 @@ class ProductoDbHelper(context: Context) :
         }
     }
 
-    // ==================== ACTUALIZACIÓN / ELIMINACIÓN ====================
-    // NOTA PARA EL EQUIPO (Parte 5): agregar aquí actualizarProducto(producto)
-    // y eliminarProducto(codigo) usando writableDatabase.update(...) y
-    // writableDatabase.delete(...) con la condición "$COL_CODIGO = ?".
-
     // Convierte la fila actual del cursor en un objeto Producto
     private fun Cursor.aProducto() = Producto(
         codigo = getString(getColumnIndexOrThrow(COL_CODIGO)),

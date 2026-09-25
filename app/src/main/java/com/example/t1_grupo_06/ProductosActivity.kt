@@ -185,12 +185,7 @@ class ProductosActivity : AppCompatActivity() {
         tvListaVacia.visibility = if (productos.isEmpty()) View.VISIBLE else View.GONE
     }
 
-    // ==================== PARTE 5: MODIFICAR Y ELIMINAR ====================
-    // NOTA PARA EL EQUIPO (Parte 5): reemplazar el contenido de estas dos funciones.
-    //  - Modificar: val producto = leerFormulario() ?: return
-    //               dbHelper.actualizarProducto(producto), luego cargarProductos()
-    //  - Eliminar:  val codigo = codigoIngresado(), confirmar con un AlertDialog,
-    //               dbHelper.eliminarProducto(codigo), limpiarFormulario() y cargarProductos()
+    // ==================== MODIFICAR Y ELIMINAR ====================
 
     private fun modificarProducto() {
         Toast.makeText(this, "Modificar producto: en desarrollo", Toast.LENGTH_SHORT).show()
@@ -205,8 +200,6 @@ class ProductosActivity : AppCompatActivity() {
     /**
      * Valida todos los campos del formulario.
      * @return el producto ingresado, o null si hay errores (se muestran en cada campo).
-     *
-     * NOTA PARA EL EQUIPO (Parte 5): reutilizar esta función en Modificar Producto.
      */
     private fun leerFormulario(): Producto? {
         limpiarErrores()
