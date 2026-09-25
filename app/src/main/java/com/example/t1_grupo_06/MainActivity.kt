@@ -11,15 +11,20 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import com.example.t1_grupo_06.usuarios.UsuarioDbHelper
 
 class MainActivity : AppCompatActivity() {
 
-    // ID del canal de notificaciones (requerido desde Android 8+)
     private val CANAL_ID = "canal_2fa"
+
+    // Conexión a la base de datos de usuarios (misma BD que usa el Registro)
+    private lateinit var dbHelper: UsuarioDbHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        dbHelper = UsuarioDbHelper(this)
 
         // Crear el canal de notificaciones al iniciar la app
         crearCanalNotificacion()
@@ -29,6 +34,9 @@ class MainActivity : AppCompatActivity() {
         val etContrasena = findViewById<EditText>(R.id.etContrasena)
         val btnCrearUsuario = findViewById<Button>(R.id.btnCrearUsuario)
         val btnEnviar = findViewById<Button>(R.id.btnIniciarSesion)
+
+        // Si venimos del registro exitoso, pre-llenamos el usuario recién creado
+        intent.getStringExtra("USUARIO_REGISTRADO")?.let { etUsuario.setText(it) }
 
         // Crear usuario
         btnCrearUsuario.setOnClickListener {
@@ -47,8 +55,8 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Validación de credenciales para dar acceso
-            if (usuario == "admin" && contrasena == "admin123") {
+            // Validación de credenciales contra la base de datos de usuarios
+            if (dbHelper.validarCredenciales(usuario, contrasena)) {
 
                 // 1. Generar código OTP aleatorio de 6 dígitos
                 val codigoOtp = (100000..999999).random().toString()
@@ -70,11 +78,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Crea el canal de notificaciones (obligatorio para Android 8+).
-     * Este canal se puede reutilizar para futuras funcionalidades
-     * como el envío de códigos al registrar un nuevo usuario.
-     */
     private fun crearCanalNotificacion() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val nombre = "Verificación 2FA"
@@ -88,16 +91,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Construye y lanza una notificación del sistema simulando
-     * la llegada de un correo electrónico con el código OTP.
-     *
-     * @param codigo El código OTP de 6 dígitos generado aleatoriamente.
-     *
-     * NOTA PARA EL EQUIPO: Esta función se puede reutilizar fácilmente
-     * desde RegistroActivity cuando se implemente el registro con correo.
-     * Solo hay que llamar: enviarNotificacionOtp(codigoGenerado)
-     */
     private fun enviarNotificacionOtp(codigo: String) {
         val notificacion = NotificationCompat.Builder(this, CANAL_ID)
             .setSmallIcon(R.drawable.ic_launcher_foreground) // Icono de la app
