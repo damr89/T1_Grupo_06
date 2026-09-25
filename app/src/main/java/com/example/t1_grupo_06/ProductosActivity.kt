@@ -188,11 +188,54 @@ class ProductosActivity : AppCompatActivity() {
     // ==================== MODIFICAR Y ELIMINAR ====================
 
     private fun modificarProducto() {
-        Toast.makeText(this, "Modificar producto: en desarrollo", Toast.LENGTH_SHORT).show()
+        // 1. Validar y leer el formulario usando el método existente
+        val producto = leerFormulario() ?: return
+
+        // 2. Comprobar que el producto exista usando existeProducto() de tu Helper
+        if (!dbHelper.existeProducto(producto.codigo)) {
+            tilCodigo.error = "No se puede modificar: El código ${producto.codigo} no existe"
+            etCodigo.requestFocus()
+            return
+        }
+
+        // 3. Ejecutar la actualización en la BD
+        if (dbHelper.modificarProducto(producto)) {
+            ocultarTeclado()
+            limpiarFormulario()
+            cargarProductos() // Refresca el RecyclerView
+            Toast.makeText(this, "✅ Producto modificado correctamente", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Error al modificar el producto. Inténtalo nuevamente.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun eliminarProducto() {
-        Toast.makeText(this, "Eliminar producto: en desarrollo", Toast.LENGTH_SHORT).show()
+        limpiarErrores()
+        val codigo = codigoIngresado()
+
+        // 1. Validar que la caja del código no esté vacía
+        if (codigo.isEmpty()) {
+            tilCodigo.error = "Ingresa el código del producto a eliminar"
+            etCodigo.requestFocus()
+            return
+        }
+
+        // 2. Verificar que el producto exista en la BD
+        if (!dbHelper.existeProducto(codigo)) {
+            tilCodigo.error = "No existe un producto con el código $codigo"
+            etCodigo.requestFocus()
+            return
+        }
+
+        // 3. Ejecutar la eliminación
+        if (dbHelper.eliminarProducto(codigo)) {
+            ocultarTeclado()
+            limpiarFormulario()
+            cargarProductos() // Refresca el RecyclerView quitando el producto
+            Toast.makeText(this, "🗑️ Producto eliminado correctamente", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Error al eliminar el producto.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     // ==================== VALIDACIÓN Y FORMULARIO ====================

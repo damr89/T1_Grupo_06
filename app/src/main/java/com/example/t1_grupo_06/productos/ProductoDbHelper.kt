@@ -98,6 +98,34 @@ class ProductoDbHelper(context: Context) :
         }
     }
 
+    // ==================== ACTUALIZACIÓN Y ELIMINACIÓN (Modificar / Eliminar) ====================
+
+    /**
+     * Modifica los datos de un producto existente.
+     * No se actualiza el código porque es la llave primaria.
+     * @return true si se actualizó correctamente (filas afectadas > 0).
+     */
+    fun modificarProducto(producto: Producto): Boolean {
+        val valores = ContentValues().apply {
+            put(COL_NOMBRE, producto.nombre)
+            put(COL_DESCRIPCION, producto.descripcion)
+            put(COL_PRECIO, producto.precio)
+            put(COL_MARCA, producto.marca)
+        }
+
+        // Retorna true si el update afectó al menos a 1 fila
+        return writableDatabase.update(TABLA, valores, "$COL_CODIGO = ?", arrayOf(producto.codigo)) > 0
+    }
+
+    /**
+     * Elimina un producto de la base de datos usando su código.
+     * @return true si se eliminó correctamente (filas afectadas > 0).
+     */
+    fun eliminarProducto(codigo: String): Boolean {
+        // Retorna true si el delete afectó al menos a 1 fila
+        return writableDatabase.delete(TABLA, "$COL_CODIGO = ?", arrayOf(codigo)) > 0
+    }
+
     // Convierte la fila actual del cursor en un objeto Producto
     private fun Cursor.aProducto() = Producto(
         codigo = getString(getColumnIndexOrThrow(COL_CODIGO)),
