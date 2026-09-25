@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Estilos del módulo de Productos (misma paleta que Login y Registro) -->
+
+    <!-- Contenedor de cada campo: etiqueta flotante para saber qué dato es cada uno -->
+    <style name="Widget.Productos.Campo" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textColorHint">@color/productos_hint</item>
+        <item name="hintTextColor">@color/productos_morado</item>
+        <item name="boxBackgroundColor">@color/productos_campo</item>
+        <item name="boxStrokeColor">@color/productos_morado</item>
+        <item name="errorTextColor">@color/productos_error</item>
+        <item name="boxStrokeErrorColor">@color/productos_error</item>
+        <item name="errorIconTint">@color/productos_error</item>
+    </style>
+
+    <!-- Texto dentro de cada campo -->
+    <style name="Widget.Productos.CampoTexto" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:importantForAutofill">no</item>
+    </style>
+
+    <!-- Botones de las operaciones CRUD -->
+    <style name="Widget.Productos.Boton" parent="Widget.Material3.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">15dp</item>
+    </style>
+
+    <!-- Botones secundarios sin fondo (Limpiar, Cerrar sesión) -->
+    <style name="Widget.Productos.BotonTexto" parent="Widget.Material3.Button.TextButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

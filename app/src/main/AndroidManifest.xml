@@ -30,7 +30,9 @@
         <activity android:name=".RegistroActivity" />
 
         <!-- Pantalla 3: Productos (CRUD) -->
-        <activity android:name=".ProductosActivity" />
+        <activity
+            android:name=".ProductosActivity"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 

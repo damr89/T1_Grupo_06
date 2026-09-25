@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores del módulo de Productos (misma paleta que Login y Registro) -->
+    <color name="productos_campo">#D3D3D3</color>
+    <color name="productos_hint">#555555</color>
+    <color name="productos_morado">#4A3B7D</color>
+    <color name="productos_error">#B71C46</color>
+</resources>
